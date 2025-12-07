@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-450164753"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-450164753');
+    </script>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2258844664628049');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2258844664628049&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P56HVVLP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Datalayer GTM: E-commerce e Leads</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn-acao {
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .btn-green {
+            background-color: #4CAF50;
+        }
+
+        .btn-blue {
+            background-color: #007bff;
+        }
+
+        .btn-yellow {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .btn-cyan {
+            background-color: #17a2b8;
+        }
+
+        .btn-purple {
+            background-color: #6f42c1;
+        }
+
+        #feedback {
+            margin-top: 20px;
+            color: blue;
+            font-weight: bold;
+        }
+
+        form {
+            max-width: 350px;
+            margin: 20px auto;
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        form input,
+        form button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        form button {
+            cursor: pointer;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P56HVVLP" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="container">
+        <h1>Demonstração Completa de Eventos GTM/Datalayer</h1>
+        <p>Clique nos botões para enviar os eventos e variáveis correspondentes para a Camada de Dados.</p>
+
+        <hr>
+
+        <h2>🛒 Eventos de E-commerce</h2>
+
+        <button class="btn-acao btn-green" onclick="dispararEvento()">➕ add_to_cart</button>
+        <button class="btn-acao btn-yellow" onclick="dispararCheckout()">➡️ begin_checkout</button>
+        <button class="btn-acao btn-blue" onclick="dispararCompra()">✅ purchase</button>
+
+        <hr>
+
+        <h2>👤 Eventos Customizados</h2>
+
+        <button class="btn-acao btn-cyan" onclick="dispararLead()">✉️ generate_lead (Botão)</button>
+        <button class="btn-acao btn-purple" onclick="dispararPromocao()">🖼️ view_promotion</button>
+
+        <h3>📩 Formulário de Lead (Demo)</h3>
+
+        <!-- FORMULÁRIO DE LEAD INSERIDO -->
+        <form id="leadForm">
+            <label>Phone:</label>
+            <input type="text" id="leadPhone" placeholder="Seu telefone" required>
+
+            <label>E-mail:</label>
+            <input type="email" id="leadEmail" placeholder="Seu melhor e-mail" required>
+
+            <button type="submit">Enviar Lead</button>
+        </form>
+
+        <p id="feedback">Nenhum evento disparado ainda.</p>
+    </div>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        // EVENTOS DO SEU CÓDIGO ORIGINAL
+        function dispararEvento() {
+            dataLayer.push({
+                'event': 'add_to_cart',
+                'ecommerce': {
+                    'items': [{
+                        'item_id': 'PROD_ABC789',
+                        'item_name': 'Camiseta GTM',
+                        'price': 49.90,
+                        'quantity': 1
+                    }]
+                }
+            });
+            document.getElementById('feedback').innerText =
+                "Evento 'add_to_cart' disparado!";
+        }
+
+        function dispararCompra() {
+            const transactionId = 'T' + Date.now();
+            dataLayer.push({
+                'event': 'purchase',
+                'ecommerce': {
+                    'transaction_id': 'transactionId3',
+                    'value': 107.00,
+                    'tax': 5.00,
+                    'shipping': 10.00,
+                    'currency': 'BRL',
+                    'items': [
+                        { 'item_id': 'PROD_ABC789', 'item_name': 'Camiseta GTM', 'price': 45.00, 'quantity': 2 },
+                        { 'item_id': 'PROD_DEF456', 'item_name': 'Boné Analytics', 'price': 10.00, 'quantity': 1 }
+                    ]
+                }
+            });
+            document.getElementById('feedback').innerText =
+                `Evento 'purchase' (ID: ${transactionId}) disparado!`;
+        }
+
+        function dispararCheckout() {
+            dataLayer.push({
+                'event': 'begin_checkout',
+                'ecommerce': {
+                    'value': 110.00,
+                    'currency': 'BRL',
+                    'items': [
+                        { 'item_id': 'PROD_ABC789', 'item_name': 'Camiseta GTM', 'price': 45.00, 'quantity': 2 },
+                        { 'item_id': 'PROD_DEF456', 'item_name': 'Boné Analytics', 'price': 10.00, 'quantity': 2 }
+                    ]
+                }
+            });
+            document.getElementById('feedback').innerText =
+                "Evento 'begin_checkout' disparado!";
+        }
+
+        function dispararLead() {
+            dataLayer.push({
+                'event': 'generate_lead',
+                'form_type': 'Botão Manual',
+                'location_page': window.location.href,
+                'value': 0
+            });
+
+            document.getElementById('feedback').innerText =
+                "Evento 'generate_lead' (Botão) disparado!";
+        }
+
+        function dispararPromocao() {
+            dataLayer.push({
+                'event': 'view_promotion',
+                'ecommerce': {
+                    'items': [{
+                        'promotion_id': 'PROMO_FRETE_GRATIS',
+                        'promotion_name': 'Frete Grátis Acima de R$100',
+                        'creative_name': 'Banner Rotativo Topo',
+                        'location_id': 'homepage_top'
+                    }]
+                }
+            });
+            document.getElementById('feedback').innerText =
+                "Evento 'view_promotion' disparado!";
+        }
+
+        // NOVO: EVENTO DISPARADO PELO FORMULÁRIO DE LEAD
+        document.getElementById("leadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const phone = document.getElementById("leadPhone").value;
+            const email = document.getElementById("leadEmail").value;
+
+            dataLayer.push({
+                event: "generate_lead",
+                form_type: "Formulário Demo",
+                lead_phone: phone,
+                lead_email: email,
+                location_page: window.location.href,
+            });
+
+            document.getElementById('feedback').innerText =
+                `Lead enviado: ${phone} / ${email}`;
+
+            this.reset();
+        });
+    </script>
+
+</body>
+
+</html>
